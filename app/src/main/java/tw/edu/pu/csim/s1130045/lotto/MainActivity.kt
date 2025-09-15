@@ -39,6 +39,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
 @Composable
 fun CounterScreen(modifier: Modifier = Modifier){
     var lucky by remember { mutableStateOf(0) }
