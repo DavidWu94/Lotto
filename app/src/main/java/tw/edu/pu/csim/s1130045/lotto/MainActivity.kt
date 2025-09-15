@@ -62,6 +62,7 @@ fun CounterScreen(modifier: Modifier = Modifier){
     }
 }
 
+
 @Composable
 fun LottoButtonStart(onClick: () -> Unit){
     Button (onClick = onClick) {
