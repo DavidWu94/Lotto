@@ -4,12 +4,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import tw.edu.pu.csim.s1130045.lotto.ui.theme.LottoTheme
 
@@ -20,8 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             LottoTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    CounterScreen(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -31,17 +35,26 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
+fun CounterScreen(modifier: Modifier = Modifier){
+    Column (
         modifier = modifier
-    )
+            .fillMaxSize()
+            .background(Color.LightGray),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        Play()
+    }
 }
 
-@Preview(showBackground = true)
+
+
 @Composable
-fun GreetingPreview() {
-    LottoTheme {
-        Greeting("Android")
-    }
+fun Play(modifier: Modifier = Modifier){
+    var lucky = (1 .. 100).random()
+
+    Text(
+        text="樂透數字$lucky",
+        modifier = modifier,
+    )
 }
